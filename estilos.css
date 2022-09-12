@@ -1,13 +1,22 @@
 * {
-    margin: 0;
-    padding: 0;
+  
+    margin: 200;
+    padding: 200;
     box-sizing: border-box;
   }
   
   body{
+   
+  
     background: white;
   }
   
+
+
+  h1{
+    font-family: sans-serif;
+  }
+
   .android{
     width: 1rem;
     height: 1rem;
