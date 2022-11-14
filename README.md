@@ -1,1 +1,1 @@
-Proyecto final de React.js CoderHouse
+Proyecto de React.js CoderHouse
