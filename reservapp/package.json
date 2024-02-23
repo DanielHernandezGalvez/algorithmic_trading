@@ -1,0 +1,20 @@
+{
+  "name": "reservapp",
+  "version": "1.0.0",
+  "description": "backend ",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "mern",
+    "stack"
+  ],
+  "author": "Daniel Galvez",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
