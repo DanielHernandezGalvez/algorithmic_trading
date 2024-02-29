@@ -32,13 +32,13 @@ function keyDownHandler(e) {
 }
 
 function keyUpHandler(e) {
-    if (e.keyCode == 37) {
-        leftMove = false;
-      } else {
-        if (e.keyCode == 39) {
-          rightMove = false;
-        }
-      }
+  if (e.keyCode == 37) {
+    leftMove = false;
+  } else {
+    if (e.keyCode == 39) {
+      rightMove = false;
+    }
+  }
 }
 
 function drawBall() {
@@ -70,6 +70,10 @@ function draw() {
   if (y + dy < radius || y + dy > c.height - radius) {
     dy = -dy;
   }
+
+  if (leftMove && paddleX > 0) paddleX -= 8;
+
+  if (rightMove && paddleX < c.width - paddleWidth) paddleX += 8;
 
   x += dx;
   y += dy;
