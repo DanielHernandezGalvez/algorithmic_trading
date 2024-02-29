@@ -2,7 +2,7 @@ var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
 // circle size
-var radius = 10;
+var radius = 7;
 var x = c.width / 2;
 var y = c.height - radius;
 
@@ -30,16 +30,22 @@ var brickPadding = 12;
 var brick0SetTop = 30;
 var brick0SetLeft = 100;
 
+// score
+var score = 0;
+var lives = 3;
+
 var bricks = [];
 for (let i = 0; i < brickColumns; i++) {
   bricks[i] = [];
   for (let j = 0; j < brickRows; j++) {
-    bricks[i][j] = { x: 0, y: 0, drawBrick: false };
+    bricks[i][j] = { x: 0, y: 0, drawBrick: true };
   }
 }
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("mousemove", mouseMoveHandler, false)
+document.addEventListener("touchmove", mouseMoveHandler, false)
 
 function keyDownHandler(e) {
   if (e.keyCode == 37) {
@@ -61,10 +67,17 @@ function keyUpHandler(e) {
   }
 }
 
+function mouseMoveHandler(e){
+    var mouseRelativeX = e.clientX - c.offsetLeft;
+    if(mouseRelativeX > 0 && mouseRelativeX < c.width) {
+        paddleX = mouseRelativeX - paddleWidth / 2;
+    }
+}
+
 function drawBall() {
   ctx.beginPath();
   ctx.arc(x, y, radius, 0, 2 * Math.PI);
-  ctx.fillStyle = "#000"; // circle color
+  ctx.fillStyle = "#DDD"; // circle color
   ctx.fill();
   ctx.closePath();
 }
@@ -80,14 +93,54 @@ function drawPaddle() {
 function drawBricks() {
   for (let i = 0; i < brickColumns; i++) {
     for (let j = 0; j < brickRows; j++) {
-      var brickX = (i *(brickW + brickPadding)) + brick0SetLeft;
-      var brickY = (j*(brickH + brickPadding))+brick0SetTop;
-      ctx.rect(brickX, brickY, brickW, brickH);
-      ctx.fillStyle = "#ddd"; // paddle color
-      ctx.fill();
-      ctx.closePath();
+      if (bricks[i][j].drawBrick) {
+        var brickX = i * (brickW + brickPadding) + brick0SetLeft;
+        var brickY = j * (brickH + brickPadding) + brick0SetTop;
+        bricks[i][j].x = brickX;
+        bricks[i][j].y = brickY;
+        ctx.rect(brickX, brickY, brickW, brickH);
+        ctx.fillStyle = "#ddd"; // paddle color
+        ctx.fill();
+        ctx.closePath();
+      }
     }
   }
+}
+
+function detectHits() {
+  for (let i = 0; i < brickColumns; i++) {
+    for (let j = 0; j < brickRows; j++) {
+      var brick = bricks[i][j];
+
+      if (bricks[i][j].drawBrick) {
+        if (
+          x > brick.x &&
+          x < brick.x + brickW &&
+          y > brick.y &&
+          y < brick.y + brickH
+        ) {
+          dy = -dy;
+          brick.drawBrick = false;
+          score++;
+          if (score == brickColumns * brickRows) {
+            alert("Ganaste");
+          }
+        }
+      }
+    }
+  }
+}
+
+function drawScore() {
+  ctx.font = "18px Arial";
+  ctx.fillStyle = "#000";
+  ctx.fillText("Score: " + score, 10, 20);
+}
+
+function drawLives() {
+  ctx.font = "18px Arial";
+  ctx.fillStyle = "#000";
+  ctx.fillText("Lives: " + lives, c.width - 80, 20);
 }
 
 function draw() {
@@ -96,6 +149,9 @@ function draw() {
   drawPaddle();
   drawBall();
   drawBricks();
+  detectHits();
+  drawScore();
+  drawLives();
 
   if (x + dx > c.width - radius || x + dx < radius) dx = -dx;
 
@@ -106,7 +162,16 @@ function draw() {
       if (x > paddleX && x < paddleX + paddleWidth) {
         dy = -dy;
       } else {
-        // alert("perdiste");
+        lives--;
+        if (lives < 1) {
+          alert("perdiste");
+        } else {
+          x = c.width / 2;
+          y = c.height - radius;
+          dx = 2;
+          dy = -2;
+          paddleX = c.width / 2;
+        }
       }
     }
   }
