@@ -48,6 +48,7 @@ document.addEventListener("mousemove", mouseMoveHandler, false)
 document.addEventListener("touchmove", mouseMoveHandler, false)
 
 function keyDownHandler(e) {
+  
   if (e.keyCode == 37) {
     leftMove = true;
   } else {
@@ -55,6 +56,7 @@ function keyDownHandler(e) {
       rightMove = true;
     }
   }
+  
 }
 
 function keyUpHandler(e) {
