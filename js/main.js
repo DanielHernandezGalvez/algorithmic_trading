@@ -111,10 +111,12 @@ function drawBricks() {
 
 function detectHits() {
   for (let i = 0; i < brickColumns; i++) {
+    
     for (let j = 0; j < brickRows; j++) {
       var brick = bricks[i][j];
 
       if (bricks[i][j].drawBrick) {
+        
         if (
           x > brick.x &&
           x < brick.x + brickW &&
@@ -127,10 +129,15 @@ function detectHits() {
           if (score == brickColumns * brickRows) {
             alert("Ganaste");
           }
+          
         }
+        
       }
+      
     }
+    
   }
+  
 }
 
 function drawScore() {
@@ -147,7 +154,7 @@ function drawLives() {
 
 function draw() {
   ctx.clearRect(0, 0, c.width, c.height);
-
+  
   drawPaddle();
   drawBall();
   drawBricks();
