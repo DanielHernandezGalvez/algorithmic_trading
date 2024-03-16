@@ -21,12 +21,9 @@ var leftMove = false;
 // bricks
 var brickRows = 3;
 var brickColumns = 5;
-
 var brickW = 60;
 var brickH = 20;
-
 var brickPadding = 12;
-
 var brick0SetTop = 30;
 var brick0SetLeft = 100;
 
