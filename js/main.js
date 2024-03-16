@@ -5,7 +5,6 @@ var ctx = c.getContext("2d");
 var radius = 7;
 var x = c.width / 2;
 var y = c.height - radius;
-
 var dx = 2;
 var dy = -2;
 
