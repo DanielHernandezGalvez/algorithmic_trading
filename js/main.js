@@ -13,7 +13,6 @@ var paddleX = c.width / 2;
 var paddleY = c.height - 10;
 var paddleWidth = 60;
 var paddleHeigth = 12;
-
 var rightMove = false;
 var leftMove = false;
 
