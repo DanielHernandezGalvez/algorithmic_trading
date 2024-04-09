@@ -182,9 +182,8 @@ function draw() {
   }
 
   if (leftMove && paddleX > 0) paddleX -= 8;
-
   if (rightMove && paddleX < c.width - paddleWidth) paddleX += 8;
-
+  
   x += dx;
   y += dy;
 }
