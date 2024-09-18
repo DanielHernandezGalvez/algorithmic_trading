@@ -4,8 +4,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d247204e-e639-4cdd-bd45-77f29e58c84d/df4i7xh-bbaa7045-728a-4fa0-b40f-c2368d1278ba.jpg/v1/fill/w_1280,h_720,q_75,strp/wp6538316_aesthetic_pc_gaming_4k_wallpapers_by_blacknet2019_df4i7xh-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvZDI0NzIwNGUtZTYzOS00Y2RkLWJkNDUtNzdmMjllNThjODRkXC9kZjRpN3hoLWJiYWE3MDQ1LTcyOGEtNGZhMC1iNDBmLWMyMzY4ZDEyNzhiYS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.QE5TVjQUsff9pfGfFz7wyZhDehZfJYt88uO9PVDE5O4");
+  background: url("https://img.freepik.com/free-photo/cool-geometric-triangular-figure-neon-laser-light-great-backgrounds-wallpapers_181624-9331.jpg?t=st=1726701436~exp=1726705036~hmac=df6c1fd6ea9aac7711ad516f109002020136ac57b69a2d4b2e0f58e19cc60860&w=1060");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 h1{
