@@ -15,6 +15,11 @@ h1{
     font-family: sans-serif;
 }
 
+a{
+    color: #fff;
+    text-decoration: none;
+}
+
 #myCanvas {
   margin: auto;
   border-radius: 10px;
