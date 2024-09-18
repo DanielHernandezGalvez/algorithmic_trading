@@ -72,18 +72,10 @@ function mouseMoveHandler(e){
     }
 }
 
-function drawBall() {
-  ctx.beginPath();
-  ctx.arc(x, y, radius, 0, 2 * Math.PI);
-  ctx.fillStyle = "#DDD"; // circle color
-  ctx.fill();
-  ctx.closePath();
-}
-
 function drawPaddle() {
   ctx.beginPath();
   ctx.rect(paddleX, paddleY, paddleWidth, paddleHeigth);
-  ctx.fillStyle = "#ddd"; // paddle color
+  ctx.fillStyle = "#ff0000"; // paddle color
   ctx.fill();
   ctx.closePath();
 }
@@ -97,7 +89,7 @@ function drawBricks() {
         bricks[i][j].x = brickX;
         bricks[i][j].y = brickY;
         ctx.rect(brickX, brickY, brickW, brickH);
-        ctx.fillStyle = "#ddd"; // paddle color
+        ctx.fillStyle = "#000"; // paddle color
         ctx.fill();
         ctx.closePath();
       }
@@ -105,6 +97,14 @@ function drawBricks() {
   }
 }
 
+
+function drawBall() {
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, 2 * Math.PI);
+  ctx.fillStyle = "#ff0000"; // circle color
+  ctx.fill();
+  ctx.closePath();
+}
 function detectHits() {
   for (let i = 0; i < brickColumns; i++) {
     
