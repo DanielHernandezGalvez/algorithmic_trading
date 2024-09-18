@@ -89,7 +89,7 @@ function drawBricks() {
         bricks[i][j].x = brickX;
         bricks[i][j].y = brickY;
         ctx.rect(brickX, brickY, brickW, brickH);
-        ctx.fillStyle = "#000"; // paddle color
+        ctx.fillStyle = "#fff"; // paddle color
         ctx.fill();
         ctx.closePath();
       }
@@ -138,13 +138,13 @@ function detectHits() {
 
 function drawScore() {
   ctx.font = "18px Arial";
-  ctx.fillStyle = "#000";
+  ctx.fillStyle = "#fff";
   ctx.fillText("Score: " + score, 10, 20);
 }
 
 function drawLives() {
   ctx.font = "18px Arial";
-  ctx.fillStyle = "#000";
+  ctx.fillStyle = "#fff";
   ctx.fillText("Lives: " + lives, c.width - 80, 20);
 }
 
