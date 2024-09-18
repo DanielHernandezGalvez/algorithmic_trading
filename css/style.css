@@ -18,6 +18,10 @@ h1{
 a{
     color: #fff;
     text-decoration: none;
+    padding-bottom: 7rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    font-family: sans-serif;
 }
 
 #myCanvas {
