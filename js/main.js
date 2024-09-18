@@ -123,7 +123,7 @@ function detectHits() {
           brick.drawBrick = false;
           score++;
           if (score == brickColumns * brickRows) {
-            alert("GANASTE, reinicia la página");
+            alert("GANASTE, ya no llamen a Dios, te tenemos a tí");
           }
           
         }
@@ -169,7 +169,7 @@ function draw() {
       } else {
         lives--;
         if (lives < 1) {
-          alert("PERDISTE, reinicia la página");
+          alert("PERDISTE, reinicia la página o vete al fierro");
         } else {
           x = c.width / 2;
           y = c.height - radius;
