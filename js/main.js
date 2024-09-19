@@ -124,7 +124,6 @@ function detectHits() {
           score++;
           if (score == brickColumns * brickRows) {
             alert("GANASTE, ya no llamen a Dios, te tenemos a tí");
-            wondow.reload()
           }
           
         }
