@@ -10,7 +10,10 @@ body {
   background-repeat: no-repeat;
 }
 
-
+h1{
+    color: #fff;
+    font-family: sans-serif;
+}
 
 a{
     color: #fff;
