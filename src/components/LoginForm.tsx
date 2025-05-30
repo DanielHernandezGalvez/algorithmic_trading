@@ -10,19 +10,39 @@ import { Phone, Mail, Lock, Eye, EyeOff } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 
-import { useRouter } from "next/navigation"
+// import { useRouter } from "next/navigation"
 
 export default function Component() {
   const [showPassword, setShowPassword] = useState(false)
+  const [errorText, setErrorText] = useState("")
 
-  const router = useRouter()
+  // const router = useRouter()
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    setTimeout(() => {
-        router.push("/dashboard")
-    }, 2000)
+    const formData = new FormData(event.currentTarget)
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+
+
+    const result = await fetch("/api/signin", {
+      method: "POST",
+      body: JSON.stringify({email,password}),
+      headers: {
+          "Content-Type": "application/json"
+        }
+    })
+
+    const data = await result.json()
+
+    if (!data.success) {
+      setErrorText("contraseña o email incorrecto")
+    } else {
+      setErrorText("")
+    }
+
+
   }
 
   return (
@@ -49,7 +69,7 @@ export default function Component() {
               <Label htmlFor="email">Correo electrónico</Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                <Input id="email" type="email" placeholder="tu@empresa.com" className="pl-10" required />
+                <Input name="email" id="email" type="email" placeholder="tu@empresa.com" className="pl-10" required />
               </div>
             </div>
 
@@ -59,6 +79,7 @@ export default function Component() {
                 <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                 <Input
                   id="password"
+                  name="password"
                   type={showPassword ? "text" : "password"}
                   placeholder="••••••••"
                   className="pl-10 pr-10"
@@ -89,6 +110,11 @@ export default function Component() {
             <Button type="submit" className="w-full bg-rose-600 hover:bg-rose-700" size="lg">
               Iniciar Sesión
             </Button>
+            {
+              (errorText !== "") && (
+                <p>{errorText}</p>
+              )
+            }
             </form>
 
             <div className="relative">
