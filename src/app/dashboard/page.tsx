@@ -4,7 +4,10 @@ import { RecentUsers } from "@/components/dashboard/RecentUsers"
 import { RecentEvents } from "@/components/dashboard/RecentEvents"
 import { ActivityFeed } from "@/components/dashboard/ActivityFeed"
 
-export default function AdminDashboard() {
+
+export default async function AdminDashboard() {
+
+
   return (
     <div className="min-h-screen bg-background">
       <AdminHeader />

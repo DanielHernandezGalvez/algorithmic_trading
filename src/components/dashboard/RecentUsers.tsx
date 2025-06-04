@@ -52,7 +52,6 @@ export function RecentUsers() {
           {users.map((user, index) => (
             <div key={index} className="flex items-center space-x-4">
               <Avatar className="h-9 w-9">
-                <AvatarImage src={user.avatar || "/placeholder.svg"} alt={user.name} />
                 <AvatarFallback>
                   {user.name
                     .split(" ")

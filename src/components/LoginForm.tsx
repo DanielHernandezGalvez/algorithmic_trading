@@ -9,10 +9,13 @@ import { Separator } from "@/components/ui/separator"
 import { Phone, Mail, Lock, Eye, EyeOff } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 // import { useRouter } from "next/navigation"
 
 export default function Component() {
+  const router = useRouter()
+
   const [showPassword, setShowPassword] = useState(false)
   const [errorText, setErrorText] = useState("")
 
@@ -40,6 +43,7 @@ export default function Component() {
       setErrorText("contraseña o email incorrecto")
     } else {
       setErrorText("")
+      router.push("/dashboard")
     }
 
 

@@ -1,4 +1,5 @@
 import { signinMock } from "@/services/signin";
+import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
@@ -13,6 +14,10 @@ export async function POST(request: NextRequest) {
     if(!logged) {
         return NextResponse.json({success: false})
     }
+
+    const cookiesHandler = await cookies()
+    cookiesHandler.set("isLogged", "ok")
+    cookiesHandler.set("username", "Dinz Kramer")
 
     return NextResponse.json({success: true})
 }
